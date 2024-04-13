@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/styles.css">
+<style>
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+</style>
+</head>
+<body>
+<h1>BMI Calculator</h1>
+ <form action="/bmiResult" method="post" th:object="${bmiInfo}">
+    <div class="box">
+    <label><b>Enter the required details in the below form</b></label>
+    <input type="text" placeholder="Enter you Weight in KG" name="weight" required th:field="*{weight}">
+    <input type="text" placeholder="Enter your Height in Inchs" name="height" required th:field="*{height}">
+    <button type="submit">Calculate</button> 
+  </div>  
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/table-style.css">
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+	<h1>Your BMR Result</h1>
+	<div class="box2">
+
+		<table class="styled-table font-color-red">
+			<thead>
+				<tr>
+					<th>Weight (KG)</th>
+					<th>Height (Inch)</th>
+					<th>Gender</th>
+					<th>Age</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<p><span th:text="${height}"></span></p>
+					</td>
+					<td>
+						<p><span th:text="${height}"></span></p>
+					</td>
+					<td>
+						<p><span th:text="${gender}"></span></p>
+					</td>
+					<td>
+						<p><span th:text="${age}"></span></p>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+		
+		<h3><p>Mifflin-St Jeor Equation : <span th:text="${mifflinStJeorEquation}"></span><span> Cal/Day</span></p></h3>
+		<h3><p>Revised Harris-Benedict Equation : <span th:text="${revisedHarrisBenedictEquation}"></span><span> Cal/Day</span></p></h3>
+	</div>
+
+</body>
+
+</html>

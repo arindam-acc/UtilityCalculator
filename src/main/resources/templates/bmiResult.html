@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/styles.css">
+	<link rel="stylesheet" href="/css/table-style.css">
+</head>
+<body>
+	<h1>Your BMI Result</h1>
+	<div class="box2">
+		<table class="styled-table bmitable">
+			<thead>
+				<tr>
+					<th>Weight (KG)</th>
+					<th>Height (Inch)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<p><span th:text="${weight}"></span></p>
+					</td>
+					<td>
+						<p><span th:text="${height}"></span></p>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h3>
+		<p>BMI is : <span th:text="${bmi}"></span></p>
+	</h3>
+	</div>
+
+</body>
+
+</html>
