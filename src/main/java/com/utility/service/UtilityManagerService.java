@@ -13,4 +13,6 @@ public interface UtilityManagerService {
 	
 	public List<String> getBMRResult(BmrInfo bmrinfo);
 
+	List<String> getidealWeightResult(BmrInfo bmrInfo);
+
 }

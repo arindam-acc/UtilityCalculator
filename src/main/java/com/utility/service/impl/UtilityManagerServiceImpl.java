@@ -118,4 +118,105 @@ public class UtilityManagerServiceImpl implements UtilityManagerService{
 		}
 		return bmrResult;
 	}
+	
+	@Override
+	public List<String> getidealWeightResult(BmrInfo bmrInfo) {
+		String gjHamwi = this.gjHamwi(bmrInfo);
+		String bjDevine = this.bjDevine(bmrInfo);
+		String jdRobinson = this.jdRobinson(bmrInfo);
+		String drMiller = this.drMiller(bmrInfo);
+		List<String> bmrList = new ArrayList<String>();
+		bmrList.add(gjHamwi);
+		bmrList.add(bjDevine);
+		bmrList.add(jdRobinson);
+		bmrList.add(drMiller);
+		return bmrList;
+	}
+	
+	private String gjHamwi(BmrInfo bmrInfo) {
+		final DecimalFormat decfor = new DecimalFormat("0.00");
+		double bmrCalc = 0.0;
+		String bmrResult = null;
+		double inchCalc = 0.0;
+		double fracCalc =0.0;
+		double fixedWeightMale = 48;
+		double fixedWeightFemale = 45.5;
+		if(StringUtils.isNotBlank(bmrInfo.getGender()) && bmrInfo.getGender().equalsIgnoreCase("M")) {
+			inchCalc = bmrInfo.getHeight() % 60;
+			fracCalc = 2.7 * inchCalc;
+			bmrCalc = fixedWeightMale + fracCalc;
+			 bmrResult =  decfor.format(bmrCalc);
+		}else if(StringUtils.isNotBlank(bmrInfo.getGender()) && bmrInfo.getGender().equalsIgnoreCase("F")){
+			inchCalc = bmrInfo.getHeight() % 60;
+			fracCalc = 2.2 * inchCalc;
+			bmrCalc = fixedWeightFemale + fracCalc;
+			 bmrResult =  decfor.format(bmrCalc);
+		}
+		return bmrResult;
+	}
+	private String bjDevine(BmrInfo bmrInfo) {
+		final DecimalFormat decfor = new DecimalFormat("0.00");
+		double bmrCalc = 0.0;
+		String bmrResult = null;
+		double inchCalc = 0.0;
+		double fracCalc =0.0;
+		double fixedWeightMale = 50;
+		double fixedWeightFemale = 45.5;
+		if(StringUtils.isNotBlank(bmrInfo.getGender()) && bmrInfo.getGender().equalsIgnoreCase("M")) {
+			inchCalc = bmrInfo.getHeight() % 60;
+			fracCalc = 2.3 * inchCalc;
+			bmrCalc = fixedWeightMale + fracCalc;
+			bmrResult =  decfor.format(bmrCalc);
+		}else if(StringUtils.isNotBlank(bmrInfo.getGender()) && bmrInfo.getGender().equalsIgnoreCase("F")){
+			inchCalc = bmrInfo.getHeight() % 60;
+			fracCalc = 2.3 * inchCalc;
+			bmrCalc = fixedWeightFemale + fracCalc;
+			bmrResult =  decfor.format(bmrCalc);
+		}
+		return bmrResult;
+	}
+	private String jdRobinson(BmrInfo bmrInfo) {
+		final DecimalFormat decfor = new DecimalFormat("0.00");
+		double bmrCalc = 0.0;
+		String bmrResult = null;
+		double inchCalc = 0.0;
+		double fracCalc =0.0;
+		double fixedWeightMale = 52;
+		double fixedWeightFemale = 49;
+		if(StringUtils.isNotBlank(bmrInfo.getGender()) && bmrInfo.getGender().equalsIgnoreCase("M")) {
+			inchCalc = bmrInfo.getHeight() % 60;
+			fracCalc = 1.9 * inchCalc;
+			bmrCalc = fixedWeightMale + fracCalc;
+			bmrResult =  decfor.format(bmrCalc);
+		}else if(StringUtils.isNotBlank(bmrInfo.getGender()) && bmrInfo.getGender().equalsIgnoreCase("F")) {
+			inchCalc = bmrInfo.getHeight() % 60;
+			fracCalc = 1.7 * inchCalc;
+			bmrCalc = fixedWeightFemale + fracCalc;
+			bmrResult =  decfor.format(bmrCalc);
+		}
+		return bmrResult;
+	}
+	private String drMiller(BmrInfo bmrInfo) {
+		final DecimalFormat decfor = new DecimalFormat("0.00");
+		double bmrCalc = 0.0;
+		String bmrResult = null;
+		double inchCalc = 0.0;
+		double fracCalc =0.0;
+		double fixedWeightMale = 56.2;
+		double fixedWeightFemale = 53.1;
+		if(StringUtils.isNotBlank(bmrInfo.getGender()) && bmrInfo.getGender().equalsIgnoreCase("M")) {
+			inchCalc = bmrInfo.getHeight() % 60;
+			fracCalc = 1.14 * inchCalc;
+			bmrCalc = fixedWeightMale + fracCalc;
+			bmrResult =  decfor.format(bmrCalc);
+		}else if(StringUtils.isNotBlank(bmrInfo.getGender()) && bmrInfo.getGender().equalsIgnoreCase("F")) {
+			inchCalc = bmrInfo.getHeight() % 60;
+			fracCalc = 1.36 * inchCalc;
+			bmrCalc = fixedWeightFemale + fracCalc;
+			bmrResult =  decfor.format(bmrCalc);
+		}
+		return bmrResult;
+	}
+	
+	
 }

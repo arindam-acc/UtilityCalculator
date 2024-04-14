@@ -28,7 +28,6 @@ public class UtilityManagerController {
 
     @GetMapping("/bmiHome")
     public String handleBmiHome(Model model) {
-    	System.out.println("BMI HOme");
     	model.addAttribute("bmiInfo", new BmiInfo());
         return "/bmiHome";
     }
@@ -68,6 +67,27 @@ public class UtilityManagerController {
         model.addAttribute("mifflinStJeorEquation", bmr.get(0));
         model.addAttribute("revisedHarrisBenedictEquation", bmr.get(1));
         return "/bmrResult";
+    }
+    
+    @GetMapping("/idealWeightHome")
+    public String handleIdealWeightHome(Model model) {
+    	model.addAttribute("bmrInfo", new BmrInfo());
+        return "/idealWeightHome";
+    }
+    
+    @PostMapping("/idealWeightResult")
+    public String handleIdealWeight(Model model, @ModelAttribute BmrInfo bmrInfo) {
+    	List<String> bmr = managerService.getidealWeightResult(bmrInfo);
+    	model.addAttribute("weight", bmrInfo.getWeight());
+    	model.addAttribute("height", bmrInfo.getHeight());
+    	model.addAttribute("gender", bmrInfo.getGender());
+    	model.addAttribute("age", bmrInfo.getAge());
+        model.addAttribute("bmrList", bmr);
+        model.addAttribute("gjHamwi", bmr.get(0));
+        model.addAttribute("bjDevine", bmr.get(1));
+        model.addAttribute("jdRobinson", bmr.get(2));
+        model.addAttribute("drMiller", bmr.get(3));
+        return "/idealWeightResult";
     }
     
 }
